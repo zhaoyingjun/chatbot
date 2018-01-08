@@ -11,6 +11,17 @@ http://blog.topspeedsnail.com/archives/10735/comment-page-1#comment-1161
 
 http://www.easyapple.net/?p=1384&from=singlemessage&isappinstalled=0
 
+#建议环境
+
+ubuntu14.04
+python3
+tensorflow==1.0.1
+flask==0.11.1
+
+
+
+
+
 
 
 
