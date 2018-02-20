@@ -50,7 +50,7 @@ def convert_to_vector(input_file, vocabulary_file, output_file):
 	with open(input_file, 'r') as f:
 		for line in f:
 			line_vec = []
-			for words in line.strip():
+			for words in line.split():
 				line_vec.append(vocab.get(words, UNK_ID))
 			output_f.write(" ".join([str(num) for num in line_vec]) + "\n")#将input_file里的中文字符通过查字典的方式，替换成对应的key，并保存在output_file
 	output_f.close()
