@@ -22,7 +22,7 @@ def create_vocabulary(input_file,output_file):
          counter = 0
          for line in f:
             counter += 1
-            tokens = [word for word in line.strip()]
+            tokens = [word for word in line.split()]
             for word in tokens:
                 if word in vocabulary:
                    vocabulary[word] += 1

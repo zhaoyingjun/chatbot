@@ -5,6 +5,7 @@ import math
 import os
 import random
 import getConfig
+import jieba
 
 gConfig = {}
 
@@ -40,8 +41,10 @@ for conv in convs:
 		conv = conv[:-1]
 	for i in range(len(conv)):
 		if i % 2 == 0:
+			conv[i]=" ".join(jieba.cut(conv[i]))#使用jieba分词器进行分词
 			ask.append(conv[i])#因为i是从0开始的，因此偶数行为发问的语句，奇数行为回答的语句
 		else:
+			conv[i]=" ".join(jieba.cut(conv[i]))
 			response.append(conv[i])
  
  
