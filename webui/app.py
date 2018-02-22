@@ -9,6 +9,7 @@ import sys
 import time  
 import hashlib
 import threading
+import jieba
 
 def heartbeat():
     print (time.strftime('%Y-%m-%d %H:%M:%S - heartbeat', time.localtime(time.time())))
@@ -33,9 +34,7 @@ def reply():
 
     req_msg = request.form['msg']
     res_msg = '^_^'
-    #print(req_msg)
-    #print(''.join([f+' ' for fh in req_msg for f in fh]))
-    req_msg=''.join([f+' ' for fh in req_msg for f in fh])
+    req_msg=" ".join(jieba.cut(req_msg))
     #print(req_msg)
     res_msg = execute.decode_line(sess, model, enc_vocab, rev_dec_vocab, req_msg )
     
@@ -43,7 +42,7 @@ def reply():
     res_msg=res_msg.strip()
     
     # 如果接受到的内容为空，则给出相应的恢复
-    if res_msg == '':
+    if res_msg == ' ':
       res_msg = '请与我聊聊天吧'
 
     return jsonify( { 'text': res_msg } )
