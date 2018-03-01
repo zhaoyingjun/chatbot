@@ -16,8 +16,9 @@ GO_ID = 1
 EOS_ID = 2
 UNK_ID = 3
 # 定义字典生成函数
-def create_vocabulary(input_file,output_file):
+def create_vocabulary(input_file,vocabulary_size,output_file):
     vocabulary = {}
+    k=int(vocabulary_size)
     with open(input_file,'r') as f:
          counter = 0
          for line in f:
@@ -30,8 +31,8 @@ def create_vocabulary(input_file,output_file):
                    vocabulary[word] = 1
          vocabulary_list = START_VOCABULART + sorted(vocabulary, key=vocabulary.get, reverse=True)
           # 取前20000个常用汉字
-         if len(vocabulary_list) > 10000:
-            vocabulary_list = vocabulary_list[:10000]
+         if len(vocabulary_list) > k:
+            vocabulary_list = vocabulary_list[:k]
          print(input_file + " 词汇表大小:", len(vocabulary_list))
          with open(output_file, 'w') as ff:
                for word in vocabulary_list:
@@ -62,8 +63,8 @@ def prepare_custom_data(working_directory, train_enc, train_dec, test_enc, test_
     enc_vocab_path = os.path.join(working_directory, "vocab%d.enc" % enc_vocabulary_size)
     dec_vocab_path = os.path.join(working_directory, "vocab%d.dec" % dec_vocabulary_size)
     
-    create_vocabulary(train_enc,enc_vocab_path)
-    create_vocabulary(train_dec,dec_vocab_path)
+    create_vocabulary(train_enc,enc_vocabulary_size,enc_vocab_path)
+    create_vocabulary(train_dec,dec_vocabulary_size,dec_vocab_path)
    
     # Create token ids for the training data.
     enc_train_ids_path = train_enc + (".ids%d" % enc_vocabulary_size)
