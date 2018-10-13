@@ -18,7 +18,7 @@ if not os.path.exists(conv_path):
 	exit()
 
 convs = []  # 用于存储对话集合
-with open(conv_path) as f:
+with open(conv_path,encoding='ISO-8859-1') as f:
 	one_conv = []        # 存储一次完整对话
 	for line in f:
 		line = line.strip('\n').replace('/', '')#去除换行符，并在字符间添加空格符，原因是用于区分 123 与1 2 3.
