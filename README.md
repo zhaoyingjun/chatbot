@@ -37,7 +37,7 @@ flask==0.11.1
 
 V1.1:已经增加中文分词，效果是变得更好了。注意在使用分词后，需要增加词典的大小，否则的话会导致词典无法覆盖训练集，导致出现很多的UNK。直接在seq2seq.ini中修改超参数enc_vocab_size和dec_vocab_size的值即可。
 
-V2.0:增加一个基于SeqGan的版本，以增加训练的效果。
+V2.0:增加一个基于SeqGan的版本，以增加训练的效果。如想详细了解SeqGan的原理和代码讲解，可以参阅我在小象学院的课程视频http://www.chinahadoop.cn/course/1227
 
 
 
