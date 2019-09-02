@@ -9,7 +9,7 @@
 #代码执行顺序
 
 1、在下载好代码和语料之后，将语料文件放入data目录下。
-2、按照 数据预处理器（data_utls.py)-->execute.py(执行器)-->web/app.py（预测可视化模块）的顺序执行就可以了。
+2、按照 数据预处理器（data_utls.py)-->execute.py(执行器)-->app.py（可视化对话模块）的顺序执行就可以了。
 3、超参配置在seq2seq.ini和seq2seq_sever.ini文件中配置。
 4、详细的代码讲解可以参与我的chat文章(http://gitbook.cn/books/5a4a16da1f2e8d585e464f44/index.html)。
 
