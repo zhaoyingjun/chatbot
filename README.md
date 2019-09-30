@@ -46,7 +46,7 @@ V2.0:增加一个基于SeqGan的版本，以增加训练的效果。
 
 # 路线图
 
-1、在合适的时候更新基于TensorFlow2.0开发的版本
+1、预计在11月份，小象学院的课程结束后会更新tensoflow2.0的版本，使用小黄鸡语料作为训练语料。如果需要提前学习和了解，可以在小象学院的课程中学习，课程链接地址https://www.chinahadoop.cn/course/1460 ，课程包含了CNN、CycleGAN、Seq2seq、TensorFlow Serving四个案例以及编程入门。#是的，这次commit是一个广告。
 
 
 
