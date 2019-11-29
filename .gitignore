@@ -1,3 +1,5 @@
 seqGanChatbot/data_source/
 seqGanChatbot/disc_data/checkpoints/
 seqGanChatbot/gen_data/checkpoints/
+seqGanChatbot/tensorboard/disc_log/
+seqGanChatbot/tensorboard/gen_log/
