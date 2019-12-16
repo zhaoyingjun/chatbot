@@ -44,10 +44,7 @@ V1.1:已经增加中文分词，效果是变得更好了。注意在使用分词
 
 V2.0:增加一个基于SeqGan的版本，以增加训练的效果。
 
-# 路线图
-
-1、预计在11月份，小象学院的课程结束后会更新tensoflow2.0的版本，使用小黄鸡语料作为训练语料。如果需要提前学习和了解，可以在小象学院的课程中学习，课程链接地址https://www.chinahadoop.cn/course/1460 ，课程包含了CNN、CycleGAN、Seq2seq、TensorFlow Serving四个案例以及编程入门。#是的，这次commit是一个广告。
-
+V3.0：增加TensorFlow2.0版本，目前是2.0.0alpha，训练效果见文件夹内图片，训练数据已经准备好，直接执行python3 execute即可进行训练。
 
 
 
