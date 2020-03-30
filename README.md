@@ -5,7 +5,7 @@
 
 训练的语料是从互联网上找到的shooter的训练语料，语料质量很差劲，仅作为演示代码来用，大家可以使用自己的语料
 语料下载地址：https://pan.baidu.com/s/1kWYIOVt,将文件下载后放到data目录下。
-大家也可以使用小黄鸡的预料，地址https://github.com/zhaoyingjun/chatbot/tree/master/chineseChatbotWeb-tf2.0/train_data/seq.data
+大家也可以使用小黄鸡的语料，地址https://github.com/zhaoyingjun/chatbot/tree/master/chineseChatbotWeb-tf2.0/train_data/seq.data
 
 # seq2seq版本代码执行顺序
 
