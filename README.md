@@ -32,8 +32,11 @@ https://github.com/zpppy/seqGan_chatbot
 
 ubuntu14.04  
 python3.5  
+TF1.X:
 tensorflow==1.10.1或者tensorflow-gpu==1.10.1  
 flask==0.11.1
+
+
 
 
 # 已更新功能清单:
