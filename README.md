@@ -15,8 +15,6 @@
 
 3、超参配置在seq2seq.ini和seq2seq_sever.ini文件中配置。
 
-4、详细的代码讲解可以参与我的chat文章(http://gitbook.cn/books/5a4a16da1f2e8d585e464f44/index.html)。
-
 # seqGAN版本代码执行顺序
 1 、在下载好代码和语料之后，将语料文件放入source_data目录下。
 
