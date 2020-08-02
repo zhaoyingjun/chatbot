@@ -2,10 +2,7 @@
 一个可以使用自己语料进行训练的中文聊天机器人，目前包含seq2seq tf1.x和tf.2x版本，seqGan版本为tf1.x版本，后续计划更新pytorch版本，欢迎大家实践交流。
 
 # 关于语料的说明
-
-训练的语料是从互联网上找到的shooter的训练语料，语料质量很差劲，仅作为演示代码来用，大家可以使用自己的语料
-语料下载地址：https://pan.baidu.com/s/1kWYIOVt,将文件下载后放到data目录下。
-大家也可以使用小黄鸡的预料，地址https://github.com/zhaoyingjun/chatbot/tree/master/chineseChatbotWeb-tf2.0/train_data/seq.data
+大家可以使用小黄鸡的预料，地址https://github.com/zhaoyingjun/chatbot/tree/master/chineseChatbotWeb-tf2.0/train_data/seq.data
 
 # seq2seq版本代码执行顺序
 
@@ -14,10 +11,9 @@
 2、按照 数据预处理器（data_utls.py)-->execute.py(执行器)-->app.py（可视化对话模块）的顺序执行就可以了。
 
 3、超参配置在seq2seq.ini和seq2seq_sever.ini文件中配置。
-
+PS:预训练好了一个模型，链接:https://pan.baidu.com/s/1zcrBn8dpOhtBZu_T7TOO9w  密码:s7sq，可以下载使用，模型的效果见效果图。
 # seqGAN版本代码执行顺序
 1 、在下载好代码和语料之后，将语料文件放入source_data目录下。
-
 2、按照 数据预处理器（source_data_utls.py)-->execute.py(执行器)-->app.py（可视化模块）的顺序执行就可以了
 
 # 参考代码和文献
@@ -35,7 +31,6 @@ python3.5
 TF1.X:
 tensorflow==1.10.1或者tensorflow-gpu==1.10.1  
 flask==0.11.1
-
 
 
 
