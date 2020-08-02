@@ -4,8 +4,9 @@
 import os
 import getConfig
 import jieba
+import re
 #结巴是国内的一个分词python库，分词效果非常不错。pip3 install jieba安装
-
+from zhon.hanzi import punctuation
 gConfig = {}
 
 gConfig=getConfig.get_config()
@@ -25,6 +26,7 @@ with open(conv_path,encoding='utf-8') as f:
 	one_conv = []        # 存储一次完整对话
 	for line in f:
 		line = line.strip('\n').replace('/', '')#去除换行符，并将原文件中已经分词的标记去掉，重新用结巴分词.
+		line = re.sub(r"[%s]+" %punctuation,"",line)
 		if line == '':
 			continue
 		if line[0] == gConfig['e']:
