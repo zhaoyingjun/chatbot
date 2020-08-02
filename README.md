@@ -11,7 +11,7 @@
 2、按照 数据预处理器（data_utls.py)-->execute.py(执行器)-->app.py（可视化对话模块）的顺序执行就可以了。
 
 3、超参配置在seq2seq.ini和seq2seq_sever.ini文件中配置。
-PS:预训练好了一个模型，链接:https://pan.baidu.com/s/1zcrBn8dpOhtBZu_T7TOO9w  密码:s7sq，可以下载使用，模型的效果见效果图。
+
 # seqGAN版本代码执行顺序
 1 、在下载好代码和语料之后，将语料文件放入source_data目录下。
 2、按照 数据预处理器（source_data_utls.py)-->execute.py(执行器)-->app.py（可视化模块）的顺序执行就可以了
@@ -40,7 +40,7 @@ V1.1:已经增加中文分词，效果是变得更好了。注意在使用分词
 
 V2.0:增加一个基于SeqGan的版本，以增加训练的效果。  
 
-V3.0：增加TensorFlow2.0版本，目前是2.0.0alpha，训练效果见文件夹内图片，训练数据已经准备好，直接执行python3 execute即可进行训练。  
+V3.0：增加TensorFlow2.0版，训练效果见文件夹内图片，训练数据已经准备好，直接执行python3 execute即可进行训练。 PS:预训练好了一个模型，链接:https://pan.baidu.com/s/1zcrBn8dpOhtBZu_T7TOO9w  密码:s7sq，可以下载使用，模型的效果见效果图，在使用预训练模型前需要先执行data_utl.py文件更新字典。 
 
 # 版本路线图:
 
