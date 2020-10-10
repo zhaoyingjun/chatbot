@@ -21,7 +21,7 @@ try:
 except:
     from configparser import SafeConfigParser # In Python 3, ConfigParser has been renamed to configparser for PEP 8 compliance.
 
-def get_config(config_file='seq2seq.ini'):
+def get_config(config_file='seq2seqChatbot.ini'):
     parser = SafeConfigParser()
     parser.read(config_file)
     # get the ints, floats and strings

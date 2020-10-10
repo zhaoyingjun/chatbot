@@ -1,7 +1,7 @@
 
 from configparser import SafeConfigParser
 
-def get_config(config_file='seq2seq.ini'):
+def get_config(config_file='seq2seqChatbot.ini'):
     parser = SafeConfigParser()
     parser.read(config_file)
     # get the ints, floats and strings

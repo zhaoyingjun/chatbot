@@ -37,7 +37,7 @@ import seq2seq_model
     
 gConfig = {}
 
-def get_config(config_file='seq2seq.ini'):
+def get_config(config_file='seq2seqChatbot.ini'):
     parser = SafeConfigParser()
     parser.read(config_file)
     # get the ints, floats and strings
@@ -170,7 +170,7 @@ def train():
           sess.run(model.learning_rate_decay_op)
         previous_losses.append(loss)
         # Save checkpoint and zero timer and loss.
-        checkpoint_path = os.path.join(gConfig['working_directory'], "seq2seq.ckpt")
+        checkpoint_path = os.path.join(gConfig['working_directory'], "seq2seqChatbot.ckpt")
         model.saver.save(sess, checkpoint_path, global_step=model.global_step)
         step_time, loss = 0.0, 0.0
         # Run evals on development set and print their perplexity.
@@ -206,7 +206,7 @@ def self_test():
                  bucket_id, False)
 
 
-def init_session(sess, conf='seq2seq.ini'):
+def init_session(sess, conf='seq2seqChatbot.ini'):
     global gConfig
     gConfig = get_config(conf)
  
@@ -249,7 +249,7 @@ if __name__ == '__main__':
     if len(sys.argv) - 1:
         gConfig = get_config(sys.argv[1])
     else:
-        # get configuration from seq2seq.ini
+        # get configuration from seq2seqChatbot.ini
         gConfig = get_config()
 
     print('\n>> Mode : %s\n' %(gConfig['mode']))

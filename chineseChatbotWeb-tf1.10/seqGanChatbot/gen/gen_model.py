@@ -74,7 +74,7 @@ class Seq2SeqModel(object):
         if self.num_layers > 1:
             cell = tf.nn.rnn_cell.MultiRNNCell([single_cell] * self.num_layers)
 
-        # The seq2seq function: we use embedding for the input and attention.
+        # The seq2seqChatbot function: we use embedding for the input and attention.
         def seq2seq_f(encoder_inputs, decoder_inputs, do_decode):
             return rl_seq2seq.embedding_attention_seq2seq(
                 encoder_inputs,

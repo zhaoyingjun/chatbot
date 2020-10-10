@@ -36,7 +36,7 @@ class Seq2SeqModel(object):
   This class implements a multi-layer recurrent neural network as encoder,
   and an attention-based decoder. This is the same as the model described in
   this paper: http://arxiv.org/abs/1412.7449 - please look there for details,
-  or into the seq2seq library for complete model implementation.
+  or into the seq2seqChatbot library for complete model implementation.
   This class also allows to use GRU cells in addition to LSTM cells, and
   sampled softmax to handle large output vocabulary size. A single-layer
   version of this model, but with bi-directional encoder, was presented in
@@ -103,7 +103,7 @@ class Seq2SeqModel(object):
     if num_layers > 1:
       cell = tf.contrib.rnn.MultiRNNCell([single_cell] * num_layers)
 
-    # The seq2seq function: we use embedding for the input and attention.
+    # The seq2seqChatbot function: we use embedding for the input and attention.
     def seq2seq_f(encoder_inputs, decoder_inputs, do_decode):
       tem_cell=copy.deepcopy(cell)
       return tf.contrib.legacy_seq2seq.embedding_attention_seq2seq(
