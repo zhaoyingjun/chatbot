@@ -2,7 +2,7 @@
 一个可以使用自己语料进行训练的中文聊天机器人，目前包含seq2seq tf1.x和tf.2x版本，seqGan版本为tf1.x版本，pytorch版本，欢迎大家实践交流。
 
 # 关于语料的说明
-大家可以使用小黄鸡的预料，地址https://github.com/zhaoyingjun/chatbot/tree/master/chineseChatbotWeb-tf2.0/train_data/seq.data
+大家可以使用小黄鸡的预料，地址https://github.com/zhaoyingjun/chatbot/blob/master/chineseChatbotWeb-tf2.0/seq2seqChatbot/train_data/xiaohuangji50w_nofenci.conv
 
 # seq2seq版本代码执行顺序
 
