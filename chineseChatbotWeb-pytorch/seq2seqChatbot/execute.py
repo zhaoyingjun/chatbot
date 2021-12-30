@@ -114,7 +114,7 @@ def train():
         for i in range(0,max_data-1):
             inp=input_tensor[i]
             targ=target_tensor[i]
-            batch_loss = seq2seqModel.train_step(inp, targ,encoder1,attn_decoder1,optim.SGD(encoder1.parameters(),lr=0.001),optim.SGD(encoder1.parameters(),lr=0.001))
+            batch_loss = seq2seqModel.train_step(inp, targ,encoder1,attn_decoder1,optim.SGD(encoder1.parameters(),lr=0.001),optim.SGD(attn_decoder1.parameters(),lr=0.001))
             total_loss += batch_loss
 
 
