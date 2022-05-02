@@ -49,7 +49,7 @@ tensorflow==2.0.0
 flask==0.11.1
 
 pytorch:
-torch==2.0.0
+torch==1.11
 flask==0.11.1
 
 
