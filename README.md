@@ -1,6 +1,9 @@
 # chatbot
 这是一个可以使用自己语料进行训练的中文聊天机器人项目，包含tensorflow.2x版本和pytorch版本，欢迎大家实践交流以及Star。
 
+#单机版训练效果（loss值在0.5左右）：
+
+![image](https://user-images.githubusercontent.com/12986443/178111215-930d9627-2397-44e8-9db2-3a6339b5786f.png)
 # ReleaseNote:
 V1.0:
 
@@ -29,7 +32,7 @@ V1.3:Update:2023-03-30
 # seq2seq版本代码执行顺序
 大家可以使用小黄鸡的语料，下载地址https://github.com/zhaoyingjun/chatbot/blob/master/chineseChatbotWeb-tf2.0/seq2seqChatbot/train_data/xiaohuangji50w_nofenci.conv
 
-1）、在下载好代码和语料之后，将语料文件放入train_data目录下，超参配置在config/seq2seq.ini文件中配置。。
+1）、在下载好代码和语料之后，将语料文件放入train_data目录下，超参配置在config/seq2seq.ini文件中配置，配置正确的语料文件名。
 
 2）、按照数据预处理器（data_utls.py)-->execute.py(执行器)-->app.py（可视化对话模块）的顺序执行就可以了。
 
