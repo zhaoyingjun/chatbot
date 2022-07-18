@@ -30,7 +30,7 @@ V1.3:Update:2023-03-30
 1）发布SeqGAN版本
 
 # seq2seq版本代码执行顺序
-大家可以使用小黄鸡的语料，下载地址https://github.com/zhaoyingjun/chatbot/blob/master/chineseChatbotWeb-tf2.0/seq2seqChatbot/train_data/xiaohuangji50w_nofenci.conv
+大家可以使用小黄鸡的语料，语料地址在train_data目录下，直接解压即可使用。
 
 1）、在下载好代码和语料之后，将语料文件放入train_data目录下，超参配置在config/seq2seq.ini文件中配置，配置正确的语料文件名。
 
