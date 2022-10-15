@@ -4,7 +4,7 @@ from configparser import SafeConfigParser
 config_file=os.getcwd()+'/config/seq2seq.ini'
 if not os.path.exists(config_file):
     config_file = os.path.dirname(os.getcwd()) + '/config/seq2seq.ini'
-#print(config_file)
+print(config_file)
 def get_config():
     parser = SafeConfigParser()
     parser.read(config_file)
