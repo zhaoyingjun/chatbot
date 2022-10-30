@@ -26,10 +26,10 @@ def preprocess_sentence(w):
     w ='start '+ w + ' end'
     return w
 #定义数据读取函数，从训练语料中读取数据并进行word2number的处理，并生成词典
-def read_data(path):
-    path = os.getcwd() + '/' + path
+def read_data(file_path):
+    path = os.getcwd() + '/' + file_path
     if not os.path.exists(path):
-        path=os.path.dirname(os.getcwd())+'/'+ path
+        path=os.path.dirname(os.getcwd())+'/'+ file_path
     lines = io.open(path, encoding='UTF-8').read().strip().split('\n')
     word_pairs = [[preprocess_sentence(w) for w in l.split('\t')] for l in lines]
     input_lang,target_lang=zip(*word_pairs)
