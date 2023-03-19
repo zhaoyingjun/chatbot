@@ -24,12 +24,12 @@ def preprocess_sentence(w):
 def create_dataset(path, num_examples):
     lines = io.open(path, encoding='UTF-8').read().strip().split('\n')
     pairs = [[preprocess_sentence(w)for w in l.split('\t')] for l in lines[:num_examples]]
-    input_lang=Lang("ans")
-    output_lang=Lang("ask")
+    input_lang=Lang("ask")
+    output_lang=Lang("ans")
     pairs = [list(reversed(p)) for p in pairs]
     for pair in pairs:
-        input_lang.addSentence(pair[0])
-        output_lang.addSentence(pair[1])
+        input_lang.addSentence(pair[1])
+        output_lang.addSentence(pair[0])
 
     return input_lang,output_lang,pairs
 
@@ -73,8 +73,8 @@ def read_data(path,num_examples):
     target_tensors=[]
     input_lang,target_lang,pairs=create_dataset(path,num_examples)
     for i in range(0,num_examples-1):
-        input_tensor = tensorFromSentence(input_lang, pairs[i][0])
-        target_tensor = tensorFromSentence(target_lang, pairs[i][1])
+        input_tensor = tensorFromSentence(input_lang, pairs[i][1])
+        target_tensor = tensorFromSentence(target_lang, pairs[i][0])
         input_tensors.append(input_tensor)
         target_tensors.append(target_tensor)
     return input_tensors,input_lang,target_tensors,target_lang
@@ -151,6 +151,7 @@ def predict(sentence):
         else:
           result+=target_lang.index2word[topi.item()]+' '
         dec_input = topi.squeeze().detach()
+    result = result.replace('start', '').replace('end', '').replace(' ', '')
     return result
 
 
