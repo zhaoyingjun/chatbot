@@ -16,6 +16,10 @@ vocab_tar_size = gConfig['vocab_tar_size']
 embedding_dim=gConfig['embedding_dim']
 units=gConfig['layer_size']
 BATCH_SIZE=gConfig['batch_size']
+# 在导入依赖包后
+if not os.path.exists(gConfig['model_data']):
+    os.makedirs(gConfig['model_data'])
+
 
 max_length_inp=gConfig['max_length']
 max_length_tar=gConfig['max_length']
@@ -108,9 +112,9 @@ def predict(sentence):
     #对输入的语句进行处理，加上start end标示
     sentence = preprocess_sentence(sentence)
     #进行word2number的转换
-    inputs = input_tokenizer.texts_to_sequences(sentence)
+    inputs = input_tokenizer.texts_to_sequences([sentence])
     #进行padding的补全
-    inputs = tf.keras.preprocessing.sequence.pad_sequences([inputs],maxlen=max_length_inp,padding='post')
+    inputs = tf.keras.preprocessing.sequence.pad_sequences(inputs,maxlen=max_length_inp,padding='post')
     inputs = tf.convert_to_tensor(inputs)
     result = ''
     #初始化一个中间状态
