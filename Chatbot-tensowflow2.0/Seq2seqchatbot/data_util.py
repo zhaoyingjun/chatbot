@@ -64,10 +64,11 @@ def create_vocab(lang, vocab_path, vocab_size):
 def preprocess_sentence(w):
     w = 'start ' + w + ' end'
     return w
+
+predata_util()
 lines = io.open(seq_train, encoding='UTF-8').readlines()
 word_pairs = [[preprocess_sentence(w) for w in l.split('\t')] for l in lines]
 input_lang, target_lang = zip(*word_pairs)
-predata_util()
 create_vocab(input_lang,vocab_inp_path,vocab_inp_size)
 create_vocab(target_lang,vocab_tar_path,vocab_tar_size)
 
