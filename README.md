@@ -3,14 +3,6 @@ ChatGPT带火了聊天机器人，主流的趋势都调整到了GPT类模式，�
 这是一个可以使用自己语料进行训练的中文聊天机器人项目，欢迎大家实践交流以及Star、Fork。
 # Seq2Seq版本效果参考（训练进度50%）
 ![img_1.png](img_1.png) ![img_2.png](img_2.png)
-# ReleaseNote:
-V1.0:
-
-1)重新整合了工程架构，实现全工程项目的统一，并正式发布1.0版本；
-
-2）新增了大规模分布式训练版本，依托horovod分布式训练框架；
-
-3）pytorch版本进行了更新，增加batch_size训练模式。
 # RoadMap:
 V1.1:Update:2023-09-30
 
