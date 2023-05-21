@@ -1,0 +1,6 @@
+Django == 3.2.4
+django_redis == 5.2.0
+PyMySQL == 1.0.2
+djangorestframework == 3.14.0
+djangorestframework-jwt == 1.11.0
+xadmin == 2.0.1
