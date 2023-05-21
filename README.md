@@ -15,15 +15,14 @@ V1.1:Update:2023-09-30
 
 1)增加MindSpore版本，优先在MindSpore版本上引入GPT模型，RLHF等特性。
 
-2）整体工程架构分为Seq2Seq和GPT两大分支，尽量保持MindSpore、Pytorch、Tensorflow多框架支持的版本
+2）整体工程架构分为Seq2Seq和GPT两大分支，继续保持多AI框架版本演进。
 
-3）引入贡献者，更新Web工程的前后端，功能更加丰富。
 
-V1.2:Update:2023-12-30
+V1.2:Update:2024-3-30(Maybe)
 
-1）实现类似mini-GPT4的功能，可以进行图文多模态的对话
+1）实现类似mini-GPT4的功能，可以进行图文多模态的对话，主要提升趣味性和丰富性。
 
-2）将本项目做的更加开放，引入优秀的贡献者
+2）增强分布式集群训练相关能力和RLHF等特性。
 
 # seq2seq版本代码执行顺序
 大家可以使用小黄鸡的语料，下载地址https://github.com/zhaoyingjun/chatbot/blob/master/chineseChatbotWeb-tf2.0/seq2seqChatbot/train_data/xiaohuangji50w_nofenci.conv
