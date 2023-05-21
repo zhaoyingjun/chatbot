@@ -1,7 +1,8 @@
 # chatbot
 ChatGPT带火了聊天机器人，主流的趋势都调整到了GPT类模式，本项目也与时俱进，会在近期更新更新GPT类版本。
 这是一个可以使用自己语料进行训练的中文聊天机器人项目，包含tensorflow.2x版本和pytorch版本，欢迎大家实践交流以及Star。
-
+# Seq2Seq版本效果参考（训练进度50%）
+![img_1.png](img_1.png) ![img_2.png](img_2.png)
 # ReleaseNote:
 V1.0:
 
