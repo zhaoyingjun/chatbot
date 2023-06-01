@@ -45,5 +45,5 @@ flask==0.11.1
 
 # 开源交流、联系方式
 微信群：
-![img.png](img.png)
+![](image.jpg)
 QQ：934389697
