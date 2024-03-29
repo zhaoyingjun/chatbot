@@ -4,14 +4,14 @@ ChatGPT带火了聊天机器人，主流的趋势都调整到了GPT类模式，�
 # Seq2Seq版本效果参考（训练进度50%）
 ![img_1.png](img_1.png) ![img_2.png](img_2.png)
 # RoadMap:
-V1.1:Update:2023-09-30
+V1.1:Update:2024-09-30
 
 1)增加MindSpore版本，优先在MindSpore版本上引入GPT模型，RLHF等特性。
 
 2）整体工程架构分为Seq2Seq和GPT两大分支，继续保持多AI框架版本演进。
 
 
-V1.2:Update:2024-3-30(Maybe)
+V1.2:Update:2024-12-30(Maybe)
 
 1）实现类似mini-GPT4的功能，可以进行图文多模态的对话，主要提升趣味性和丰富性。
 
@@ -44,6 +44,4 @@ torch==1.11.0
 flask==0.11.1
 
 # 开源交流、联系方式
-微信群：
-![](image.jpg)
 QQ：934389697
