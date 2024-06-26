@@ -1,4 +1,7 @@
 # chatbot
+
+THIS IS BEING USED BY SCAMMERS TO STEAL MONEY!!
+
 ChatGPT带火了聊天机器人，主流的趋势都调整到了GPT类模式，本项目也与时俱进，会在近期更新更新GPT类版本。
 这是一个可以使用自己语料进行训练的中文聊天机器人项目，欢迎大家实践交流以及Star、Fork。
 # Seq2Seq版本效果参考（训练进度50%）
