@@ -1,9 +1,12 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 import os
-import requests
-import json
+import httpx
+from uuid import UUID
+from typing import Optional
+from .web_chat import answer_with_web
+from .search import SearchError
 from .web_utils import WebUtils
 from .ocr_utils import OCRUtils
 from .excel_utils import ExcelUtils
@@ -37,13 +40,16 @@ class ScreenshotRequest(BaseModel):
 
 class ChatRequest(BaseModel):
     message: str
-    history: list = []  # 用于存储聊天历史，格式为[{"role": "user", "content": "..."}, ...]
+    history: list = Field(default_factory=list)  # 用于存储聊天历史，格式为[{"role": "user", "content": "..."}, ...]
 
-def call_doubao_model(message: str, history: list = None) -> str:
+    allow_web_search: bool = False
+    conversation_id: Optional[UUID] = None
+
+async def call_doubao_model(message: str, history: list = None) -> str:
     """调用豆包模型获取回复"""
     try:
         # 如果没有提供历史记录，初始化一个空列表
-        history = history or []
+        history = list(history or [])
         
         # 添加当前消息到历史记录
         history.append({"role": "user", "content": message})
@@ -62,11 +68,12 @@ def call_doubao_model(message: str, history: list = None) -> str:
             "Authorization": f"Bearer {OPENAI_API_KEY}"
         }
         
-        response = requests.post(
-            f"{OPENAI_BASE_URL}/chat/completions",
-            headers=headers,
-            data=json.dumps(payload)
-        )
+        async with httpx.AsyncClient(timeout=30) as client:
+            response = await client.post(
+                f"{OPENAI_BASE_URL}/chat/completions",
+                headers=headers,
+                json=payload,
+            )
         
         # 处理响应
         if response.status_code == 200:
@@ -151,7 +158,15 @@ async def chat(request: ChatRequest):
 
 
         # 调用豆包模型获取回复
-        response = call_doubao_model(prompt+request.message, request.history)
+        if request.allow_web_search:
+            if request.conversation_id is None:
+                raise SearchError("网页检索需要 conversation_id（同一聊天复用的随机 UUID）")
+            response = await answer_with_web(
+                prompt + request.message, request.history, request.conversation_id,
+                MIDSCENE_MODEL_NAME, call_doubao_model,
+            )
+        else:
+            response = await call_doubao_model(prompt+request.message, request.history)
         
         # 返回成功响应，包含模型回复和更新后的历史记录
         updated_history = request.history.copy()
@@ -163,6 +178,8 @@ async def chat(request: ChatRequest):
             "response": response,
             "history": updated_history
         }
+    except SearchError as e:
+        raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"聊天发生错误: {str(e)}")
 
