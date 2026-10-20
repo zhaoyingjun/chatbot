@@ -59,7 +59,19 @@ ShoppingAgent是一个智能订单分析Agent，能够通过浏览器自动化�
 
 ### 智能交互
 
-在左侧聊天窗口，可以使用自然语言指令控制系统
+在左侧聊天窗口，可以使用自然语言指令控制系统。
+
+勾选「允许公开网页检索」后，可以询问公开商品规格或说明书，例如「搜索 Sony WH-1000XM5 的官方重量规格，并给出来源」。模型可使用 [Parallel Search MCP](https://docs.parallel.ai/integrations/mcp/search-mcp) 的搜索和网页读取工具，再依据结果回答并引用来源。搜索使用 Fast 模式，无需 Parallel 账号或 API 密钥；模型仍使用现有豆包配置。
+
+网页权限默认关闭；开启后对该聊天后续消息生效，取消勾选即可停止，清空聊天会关闭权限并生成新的会话标识。查询和所选网页 URL 会发送到 Parallel，请只查询公开信息，不要包含订单号、姓名、地址、电话或其他隐私数据。普通订单操作和已有模型配置不变。
+
+未配置检索服务时使用 Parallel。服务端可设置 `CHATBOT_SEARCH_PROVIDER=none` 禁用网页检索，默认值为 `parallel`；不支持的显式配置会报错，不会切换服务。每轮最多调用三次网页工具，超时、服务额度不足或返回错误时会提示重试，不会静默切换提供商。API 调用者可在 `/chat` 中设置 `allow_web_search: true`，并为同一聊天的后续请求复用 `conversation_id`（随机 UUID）；新聊天使用新 UUID。
+
+相关回归检查（无需模型密钥、浏览器或联网）：
+
+```bash
+python -m unittest discover -s tests -v
+```
 
 
 ## 系统配置

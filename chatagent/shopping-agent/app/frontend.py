@@ -6,6 +6,7 @@ import json
 from PIL import Image
 from dotenv import load_dotenv
 import uuid
+from chat_context import chat_context, reset_chat_context
 import re
 import time
 
@@ -431,6 +432,7 @@ def remove_screenshot(screenshot_id):
 
 # 辅助函数: 清除聊天记录
 def clear_chat_history():
+    reset_chat_context(st.session_state)
     st.session_state["chat_history"] = []
     st.session_state["function_results"] = []
     st.session_state["function_call_sequence"] = []
@@ -975,6 +977,7 @@ def get_final_ai_response():
         }
         
         chat_request = {
+            **chat_context(st.session_state),
             "message": f"所有操作已完成，执行结果: {json.dumps(execution_summary, ensure_ascii=False)}",
             "history": st.session_state["chat_history"],
             "functions": functions,
@@ -986,7 +989,7 @@ def get_final_ai_response():
         response = requests.post(
             f"{API_BASE_URL}/chat",
             json=chat_request,
-            timeout=60  # 设置超时时间
+            timeout=240 if chat_request.get("allow_web_search") else 60  # 网页工具最多三轮
         )
         
         # 处理响应
@@ -1142,6 +1145,11 @@ with left_col:
         
         st.markdown('</div>', unsafe_allow_html=True)  # 关闭聊天记录容器
         
+        st.checkbox(
+            "允许公开网页检索", key="allow_web_search", value=False,
+            disabled=st.session_state["is_thinking"],
+            help="允许模型把公开商品查询或网页 URL 发送至 Parallel。请勿在查询中包含订单号、姓名、地址、电话等隐私信息。",
+        )
         # 消息输入和发送区域
         st.markdown('<div class="chat-input-area">', unsafe_allow_html=True)
         
@@ -1295,6 +1303,7 @@ with left_col:
                         ]
                         
                         chat_request = {
+                            **chat_context(st.session_state),
                             "message": st.session_state["last_submitted_message"],
                             "history": st.session_state["chat_history"],
                             "functions": functions,
@@ -1305,7 +1314,7 @@ with left_col:
                         response = requests.post(
                             f"{API_BASE_URL}/chat",
                             json=chat_request,
-                            timeout=60  # 设置超时时间
+                            timeout=240 if chat_request.get("allow_web_search") else 60  # 网页工具最多三轮
                         )
                         
                         # 处理响应
